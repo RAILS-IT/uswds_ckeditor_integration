@@ -14,15 +14,15 @@
 
 <div {{ attributes.addClass(accordion_class).setAttribute(multi, '') }}>
   {% for key,item in items %}
-    <h4 class="usa-accordion__heading">
+    <span class="usa-accordion__heading">
       <button
         type="button"
         class="usa-accordion__button"
         aria-expanded="{{ collapsed }}"
         aria-controls="{{ key }}">
-        {{ item['#heading'] }}
+        <span class="button_inside">{{ item['#heading'] }}</span>
       </button>
-    </h4>
+    </span>
     <div id="{{ key }}" class="usa-accordion__content usa-prose">
       <p>
         {{ item['#body'] }}
