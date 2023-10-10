@@ -1,0 +1,47 @@
+/* Small CSS to differentiate tabs during edition */
+div.usa-accordion {
+  position: relative;
+  padding: 40px 20px 0;
+  border: dashed 2px #d81b60;
+}
+
+div.usa-accordion .usa-accordion__heading {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px 10px;
+  border: dashed 1px #1e88e5;
+}
+
+div.usa-accordion .usa-accordion__button {
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  padding: 1rem 3.5rem 1rem 1.25rem;
+  cursor: text;
+  text-align: left;
+  text-decoration: none;
+  color: #1b1b1b;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  font-weight: 700;
+  -moz-osx-font-smoothing: auto;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+div.usa-accordion .usa-accordion__content {
+  margin: 5px 0 20px 20px;
+  padding: 0 10px;
+  border: dashed 1px #43a047;
+}
+
+div.usa-accordion::before {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  display: block;
+  padding: 5px 10px 0;
+  content: "USWDS Accordion";
+  font-weight: bold;
+}

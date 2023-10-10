@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * @file
+ * Install functions for the uswds_ckeditor_integration module.
+ */
+
+use Symfony\Component\Yaml\Yaml;
+
+/**
+ * Reads in new configuration.
+ *
+ * @param string $config_name
+ *   Configuration name.
+ * @param string $path
+ *   Base path.
+ */
+function uswds_ckeditor_integration_read_in_new_config(string $config_name, string $path): void {
+  $active_storage = \Drupal::service('config.storage');
+  $active_storage->write($config_name, Yaml::parse(file_get_contents($path . '/config/optional/' . $config_name)));
+}
+
+/**
+ * Enable ckeditor5_embedded_content.
+ */
+function uswds_ckeditor_integration_update_9501(): void {
+  $installer = \Drupal::service('module_installer');
+  $installer->install(['ckeditor5_embedded_content']);
+}

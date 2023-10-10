@@ -1,0 +1,53 @@
+# Ckeditor4 libraries
+ckeditor.uswds.table.admin:
+  version: 1.x
+  js:
+    js/ckeditor_uswds.admin.js: { }
+dialog:
+  version: VERSION
+  css:
+    component:
+      css/dialog.css: { }
+
+# Ckeditor5 libraries
+uswds_accordion:
+  css:
+    theme:
+      css/accordion.admin.css: { }
+  js:
+    js/build/uswds_accordion.js: { preprocess: false, minified: true }
+  dependencies:
+    - ckeditor5/ckeditor5
+
+uswds_accordion.admin:
+  css:
+    theme:
+      css/accordion.admin.css: { }
+
+uswds_accordion.frontend:
+  js:
+    js/aftermarket/uswds_accordion.js: { preprocess: false, minified: true }
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once
+
+uswds_grid:
+  js:
+    js/build/uswds_grid.js: { preprocess: false, minified: true }
+  dependencies:
+    - ckeditor5/ckeditor5
+    - uswds_ckeditor_integration/dialog
+
+uswds_grid.admin:
+  css:
+    theme:
+      css/grid.admin.css: { }
+
+uswds_overrides:
+  js:
+    js/build/uswds_overrides.js: {  preprocess: false, minified: true }
+
+uswds_table_content_items:
+  js:
+    js/build/uswds_table_content_items.js: { preprocess: false, minified: true }

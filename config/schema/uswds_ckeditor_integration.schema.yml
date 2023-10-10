@@ -1,0 +1,105 @@
+# Ckeditor4 schema
+ckeditor.plugin.uswds_grid:
+  type: mapping
+  label: 'CKEditor custom configuration'
+  mapping:
+    available_columns:
+      type: sequence
+      label: 'Allowed columns.'
+    available_breakpoints:
+      type: sequence
+      label: 'Allowed Breakpoints.'
+
+# USWDS Ckeditor schema
+uswds_ckeditor_integration.settings:
+  type: config_object
+  mapping:
+    breakpoints:
+      type: sequence
+      label: 'List of breakpoint configurations'
+      sequence:
+        type: mapping
+        mapping:
+          label:
+            type: string
+          prefix:
+            type: string
+          columns:
+            type: sequence
+            sequence:
+              type: uswds_ckeditor_integration_col_base.[%key]
+
+uswds_ckeditor_integration_col_base.*:
+  type: config_object
+  mapping:
+    layouts:
+      type: sequence
+      label: 'Column layout options'
+      sequence:
+        type: mapping
+        mapping:
+          label:
+            type: string
+          settings:
+            type: sequence
+            sequence:
+              label: 'Layout option description'
+              type: string
+
+#Ckeditor5 schema
+ckeditor5.plugin.uswds_ckeditor_integration_accordion:
+  type: mapping
+  label: USWDS Accordion
+  mapping:
+    bordered:
+      type: boolean
+      label: 'Default with border'
+      constraints:
+        NotNull: []
+
+ckeditor5.plugin.uswds_ckeditor_integration_ckeditor5_overrides:
+  type: mapping
+  label: USWDS Overrides
+  mapping:
+    override_lists:
+      type: boolean
+      label: 'Use USWDS classes for lists'
+      constraints:
+        NotNull: []
+    override_links:
+      type: boolean
+      label: 'Use USWDS classes for links'
+      constraints:
+        NotNull: []
+    override_tables:
+      type: boolean
+      label: 'Use USWDS classes for tables'
+      constraints:
+        NotNull: []
+
+ckeditor5.plugin.uswds_ckeditor_integration_ckeditor5_table_content_items:
+  type: mapping
+  label: USWDS Table Toolbar
+  mapping:
+    table_content_items:
+      type: boolean
+      label: 'Use USWDS table properties'
+      constraints:
+        NotNull: []
+
+ckeditor5.plugin.uswds_ckeditor_integration_grid:
+  type: mapping
+  label: USWDS Grid
+  mapping:
+    available_columns:
+      type: sequence
+      label: 'Allowed columns.'
+      sequence:
+        type: string
+        label: 'Columns'
+    available_breakpoints:
+      type: sequence
+      label: 'Allowed Breakpoints.'
+      sequence:
+        type: string
+        label: 'Breakpoint'

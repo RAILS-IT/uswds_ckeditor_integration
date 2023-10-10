@@ -1,0 +1,73 @@
+<?php
+
+/**
+ * @file
+ * Hooks and module logic for USWDS Ckeditor Integration.
+ */
+
+use Drupal\editor\Entity\Editor;
+
+/**
+ * Implements hook_ckeditor_css_alter().
+ */
+function uswds_ckeditor_integration_ckeditor_css_alter(array &$css, Editor $editor) {
+  $css[] = \Drupal::service('extension.list.module')->getPath('uswds_ckeditor_integration') . '/css/uswds_ckeditor.css';
+}
+
+/**
+ * Implements hook_theme().
+ */
+function uswds_ckeditor_integration_theme($existing, $type, $theme, $path) {
+  return [
+    'uswds_ckeditor_accordion' => [
+      'variables' => [
+        'items' => NULL,
+        'bordered' => NULL,
+        'multiselect' => NULL,
+        'startcollapsed' => NULL,
+      ],
+      'template' => 'embedded-content/accordion',
+    ],
+    'uswds_ckeditor_alert' => [
+      'variables' => [
+        'severity' => NULL,
+        'slim' => NULL,
+        'no_icon' => NULL,
+        'heading' => NULL,
+        'body' => NULL,
+      ],
+      'template' => 'embedded-content/alerts',
+    ],
+    'uswds_ckeditor_process_list' => [
+      'variables' => [
+        'process_items' => NULL,
+      ],
+      'template' => 'embedded-content/process-list',
+    ],
+    'uswds_ckeditor_integration_summary_box' => [
+      'variables' => [
+        'heading' => NULL,
+        'body' => NULL,
+      ],
+      'template' => 'embedded-content/summary-box',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function uswds_ckeditor_integration_page_attachments_alter(array &$page) {
+  // $config = \Drupal::config('uswds_ckeditor_integration.settings');
+  // Attaches css assets globally.
+  $page['#attached']['library'][] = 'uswds_ckeditor_integration/uswds_accordion.frontend';
+  // Pass settings to JavaScript.
+  // $page['#attached']['drupalSettings']['ckeditorAccordion']
+  // ['accordionStyle'] = [
+  // 'collapseAll' => $config->get('collapse_all'),
+  // 'keepRowsOpen' => $config->get('keep_rows_open'),
+  // 'animateAccordionOpenAndClose' =>
+  // $config->get('animate_accordion_toggle') ?? 1,
+  // 'openTabsWithHash' => $config->get('open_tabs_with_hash') ?? 1
+  // ];.
+}

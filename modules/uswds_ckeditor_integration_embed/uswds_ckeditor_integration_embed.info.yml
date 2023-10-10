@@ -1,0 +1,14 @@
+name: USWDS Ckeditor Integration Embed
+type: module
+description: Helps integrate paragraphs embed with USWDS Ckeditor Integration
+package: USWDS
+core_version_requirement: ^9 || ^10
+dependencies:
+  - uswds_ckeditor_integration:uswds_ckeditor_integration
+  - uswds_paragraph_components:uswds_paragraph_components
+  - paragraphs_entity_embed:paragraphs_entity_embed
+
+# Information added by Drupal.org packaging script on 2023-08-28
+version: '2.0.0'
+project: 'uswds_ckeditor_integration'
+datestamp: 1693248369
